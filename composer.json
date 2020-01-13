@@ -11,7 +11,7 @@
         "oauth1",
         "oauth2",
         "security",
-
+        "apple",
         "amazon",
         "asana",
         "auth0",
