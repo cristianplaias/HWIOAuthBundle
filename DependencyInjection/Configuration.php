@@ -33,6 +33,7 @@ class Configuration implements ConfigurationInterface
             'amazon',
             'asana',
             'auth0',
+            'apple',
             'azure',
             'bitbucket2',
             'bitly',
