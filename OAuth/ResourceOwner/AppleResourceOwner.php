@@ -39,6 +39,7 @@ class AppleResourceOwner extends GenericOAuth2ResourceOwner
         $parameters = array_merge(array(
             'code' => $request->request->get('code'),
             'grant_type' => 'authorization_code',
+            'response_mode' => 'form_post',
             'client_id' => $this->options['client_id'],
             'client_secret' => $this->options['client_secret'],
             'redirect_uri' => $redirectUri,
