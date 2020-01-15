@@ -30,6 +30,15 @@ class AppleResourceOwner extends GenericOAuth2ResourceOwner
         $response->setOAuthToken(new OAuthToken($accessToken));
         return $response;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getAuthorizationUrl($redirectUri, array $extraParameters = array())
+    {
+        return parent::getAuthorizationUrl($redirectUri, array_merge(array('response_mode' => $this->options['response_mode']), $extraParameters));
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -99,6 +108,7 @@ class AppleResourceOwner extends GenericOAuth2ResourceOwner
             'user_response_class' => 'HWI\Bundle\OAuthBundle\OAuth\Response\PathUserResponse',
             'scope' => 'name email',
             'appsecret_proof' => false,
+            'response_mode' => 'form_post',
         ]);
     }
 }
