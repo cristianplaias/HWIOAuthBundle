@@ -9,7 +9,6 @@
  */
 namespace HWI\Bundle\OAuthBundle\OAuth\ResourceOwner;
 use HWI\Bundle\OAuthBundle\Security\Core\Authentication\Token\OAuthToken;
-use HWI\Bundle\OAuthBundle\Security\OAuthErrorHandler;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 /**
@@ -44,7 +43,7 @@ class AppleResourceOwner extends GenericOAuth2ResourceOwner
      */
     public function getAccessToken(Request $request, $redirectUri, array $extraParameters = array())
     {
-        OAuthErrorHandler::handleOAuthError($request);
+       
         $parameters = array_merge(array(
             'code' => $request->request->get('code'),
             'grant_type' => 'authorization_code',
