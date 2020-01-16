@@ -24,7 +24,7 @@ class AppleResourceOwner extends GenericOAuth2ResourceOwner
     public function getUserInformation(array $accessToken, array $extraParameters = array())
     {
         $response = $this->getUserResponse();
-        $response->setData($accessToken);
+        $response->setResponse($accessToken);
         $response->setResourceOwner($this);
         $response->setOAuthToken(new OAuthToken($accessToken));
         return $response;
