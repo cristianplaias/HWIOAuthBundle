@@ -60,12 +60,13 @@ class AppleResourceOwner extends GenericOAuth2ResourceOwner
             $user = json_decode($user, true);
         $data = self::jwt_decode($response['id_token']);
         $response['id'] = $data['sub'];
-        $response['firstname'] = $user['name']['firstName'] ?? null;
-        $response['lastname'] = $user['name']['lastName'] ?? null;
-        $response['realname'] = ($user['name']['firstName'] ?? null).' '.($user['name']['lastName'] ?? null);
-        $response['nickname'] = str_replace(' ', '.', ($user['name']['firstName'] ?? null).'.'.($user['name']['lastName'] ?? null));
-        $response['name'] = str_replace(' ', '.', ($user['name']['firstName'] ?? null).'.'.($user['name']['lastName'] ?? null));
-        $response['email'] = $user['email'] ?? null;
+//         $response['firstname'] = $user['name']['firstName'] ?? null;
+//         $response['lastname'] = $user['name']['lastName'] ?? null;
+//         $response['realname'] = ($user['name']['firstName'] ?? null).' '.($user['name']['lastName'] ?? null);
+//         $response['nickname'] = str_replace(' ', '.', ($user['name']['firstName'] ?? null).'.'.($user['name']['lastName'] ?? null));
+//         $response['name'] = str_replace(' ', '.', ($user['name']['firstName'] ?? null).'.'.($user['name']['lastName'] ?? null));
+//         $response['email'] = $user['email'] ?? null;
+        $response['email'] = $data['email'];
         return $response;
     }
     private static function jwt_decode($jwt)
