@@ -18,6 +18,16 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 class AppleResourceOwner extends GenericOAuth2ResourceOwner
 {
+    
+    
+     /**
+     * {@inheritdoc}
+     */
+    protected $paths = array(
+        'identifier' => 'id',
+        'email' => 'email',
+    );
+    
     /**
      * {@inheritdoc}
      */
